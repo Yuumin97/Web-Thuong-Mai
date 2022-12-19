@@ -56,7 +56,7 @@ public class AuthController {
         }
 
         User user = new User(signUpForm.getName(), signUpForm.getUsername(), signUpForm.getEmail(),signUpForm.getPhoneNumber(), passwordEncoder.encode(signUpForm.getPassword()));
-        String avatar = "https://firebasestorage.googleapis.com/v0/b/phulinh-fa18e.appspot.com/o/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg?alt=media&token=89849a59-f434-4921-a638-18795091b66c";
+        String avatar = "https://firebasestorage.googleapis.com/v0/b/ducmin-530bc.appspot.com/o/images%2Fanh1.jpg?alt=media&token=bc90735e-a68f-485c-99a1-6b7a2c039b14";
         user.setAvatar(avatar);
         Set<String> strRoles = signUpForm.getRoles();
         Set<Role> roles = new HashSet<>();
@@ -77,7 +77,6 @@ public class AuthController {
         userService.save(user);
         return new ResponseEntity<>(new ResponseMessage("yes"), HttpStatus.OK);
     }
-
     @PostMapping("/signin")
     public ResponseEntity<?> signIn(@Valid @RequestBody SignIn signIn) {
         Authentication authentication = authenticationManager.authenticate(
